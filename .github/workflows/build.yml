@@ -14,11 +14,14 @@ jobs:
     - uses: actions/setup-python@v5
       with:
         python-version: "3.11"
-    - run: pip install flet pandas openpyxl
-    - run: flet build apk --yes
+    - name: Set up environment
+      run: |
+        pip install --upgrade pip
+        pip install flet==0.21.1 pandas==2.0.3 openpyxl==3.1.2
+    - name: Build APK
+      run: flet build apk --yes
     - uses: actions/upload-artifact@v4
       with:
         name: DataLinkAnalyzer.apk
         path: build/apk/
         if-no-files-found: error
-
