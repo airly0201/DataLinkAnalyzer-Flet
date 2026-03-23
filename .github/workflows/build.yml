@@ -15,8 +15,8 @@ jobs:
       with:
         python-version: "3.11"
     - run: pip install flet pandas openpyxl
-    - run: flet build apk -y
+    - run: flet build apk
     - uses: actions/upload-artifact@v4
       with:
-        name: DataLinkAnalyzer-debug.apk
+        name: DataLinkAnalyzer.apk
         path: build/apk/app-release.apk
