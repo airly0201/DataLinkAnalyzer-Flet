@@ -1,49 +1,29 @@
 # Flet App Cloud Build Configuration
-# 用于 Android 打包配置
 
 app_name: DataLinkAnalyzer
-app_name_short: 数据关联分析
+app_name_short: DataLinkAnalyzer
 app_version: "1.0.0"
 app_id: com.datalinkanalyzer.app
-app_description: "多表数据关联分析平台，支持Excel数据处理和关联查询"
+app_description: "多表数据关联分析平台"
 
-# Android 配置
 android:
-  # 应用图标（可选）
-  # icon: assets/icon.png
-  
-  # 权限配置
   permissions:
     - READ_EXTERNAL_STORAGE
     - WRITE_EXTERNAL_STORAGE
-  
-  # 屏幕方向
+    - MANAGE_EXTERNAL_STORAGE
+    - INTERNET
+    - ACCESS_NETWORK_STATE
   orientation: portrait
-  
-  # 主题颜色
   theme_color: "#2196F3"
 
-# 构建配置
 build:
-  # 目标平台
   target: android
-  
-  # 架构
   arch: arm64
-  
-  # 是否启用调试
-  debug: false
+  debug: true
 
-# 依赖包
 packages:
   - flet>=0.21.0
   - pandas>=2.0.0
   - openpyxl>=3.1.0
-  - psutil>=5.9.0
 
-# 入口文件
 entry: main.py
-
-# Assets 目录
-assets:
-  # - assets/
