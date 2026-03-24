@@ -33,19 +33,10 @@ jobs:
         pip show flet
     
     - name: Build APK
-      run: |
-        echo "=== Current directory ==="
-        ls -la
-        echo "=== Python version ==="
-        python --version
-        echo "=== Building APK ==="
-        flet build apk --yes 2>&1 || true
-        echo "=== Build output ==="
-        ls -la build/ 2>/dev/null || echo "No build directory"
+      run: flet build apk --yes
     
     - uses: actions/upload-artifact@v4
-      if: always()
       with:
         name: DataLinkAnalyzer.apk
         path: build/apk/
-        if-no-files-found: warn
+        if-no-files-found: error
