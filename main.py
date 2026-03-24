@@ -134,5 +134,5 @@ def main(page: ft.Page):
 
 
 if __name__ == "__main__":
-    # 使用 run() 替代 app()
-    ft.run(target=main)
+    # 使用 app() 替代 run()，适合移动端
+    ft.app(target=main)
