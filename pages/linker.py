@@ -324,9 +324,9 @@ class LinkerPage:
             self.status_text.color =ft.colors.GREY_600
     
     def go_back(self, e):
-        """返回上一步"""
-        # 这里通过回调通知主程序返回
-        pass
+        """返回上一步 - 通过回调通知主程序"""
+        if hasattr(self, 'on_go_back') and callable(self.on_go_back):
+            self.on_go_back()
     
     def confirm_links(self, e):
         """确认关联配置"""

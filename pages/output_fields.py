@@ -315,8 +315,9 @@ class OutputFieldsPage:
         self.status_text.color = ft.colors.GREY_600
     
     def go_back(self, e):
-        """返回上一步"""
-        pass
+        """返回上一步 - 通过回调通知主程序"""
+        if hasattr(self, 'on_go_back') and callable(self.on_go_back):
+            self.on_go_back()
     
     def execute_query(self, e):
         """执行查询"""
